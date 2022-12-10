@@ -24,37 +24,35 @@ public class Task03 {
         System.out.println("Input 1 - MAX, 0 - MIN, 5 - Avr.");
 
         int action = scanner.nextInt();
-        int maxNumber = 0;
-        int minNumber = 0;
+        int maxNumber;
+        int minNumber;
 
-        if (number1 > number2) {
-            if (number1 > number3) {
-                maxNumber = number1;
-                minNumber = number2 < number3 ? number2 : number3;
-            }
-        } else {
-            if (number2 > number3) {
-                maxNumber = number2;
-                minNumber = number1 < number3 ? number1 : number3;
-            } else {
-                maxNumber = number3;
-                minNumber = number1 < number2 ? number1 : number2;
-            }
-
-            switch (action) {
-                case 1:
-                    System.out.println("MAX = " + maxNumber);
-                    break;
-                case 0:
+        switch (action) {
+            case 1:
+                if (number1 >= number2 && number1 >= number3) {
+                    maxNumber = number1;
+                } else if (number2 >= number1 && number2 >= number3) {
+                    maxNumber = number2;
+                } else {
+                    maxNumber = number3;
+                }
+                System.out.println("MAX = " + maxNumber);
+                break;
+            case 0:
+                if (number1 <= number2 && number1 <= number3) {
+                    minNumber = number1;
+                } else if (number2 <= number1 && number2 <= number3) {
+                    minNumber = number2;
+                } else {
+                    minNumber = number3;
                     System.out.println("MIN. = " + minNumber);
-                    break;
-                case 5:
-                    System.out.println("Avr. = " + ((number1 + number2 * number3) / 3));
-                    break;
-                default:
-                    System.out.println("Incorrect input");
-                    return;
-            }
+                }
+                break;
+            case 5:
+                System.out.println("Avr. = " + ((number1 + number2 + number3) / 3));
+                break;
+            default:
+                System.out.println("Incorrect input");
         }
     }
 }
