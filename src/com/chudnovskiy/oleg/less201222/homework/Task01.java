@@ -33,7 +33,6 @@ public class Task01 {
         System.out.print("input number of available places nearby:\t");
         placesNearby = scanner.nextInt();
 
-        int countPlaces = 0;
         for (int i = 0; i < rows; i++) {
             arrayList = new ArrayList<>();
             for (int j = 0; j < cols; j++) {
@@ -43,13 +42,15 @@ public class Task01 {
                         freeSpacePrinting(i, arrayList);
                         break;
                     }
+                } else {
+                    arrayList = new ArrayList<>();
                 }
              }
         }
     }
 
     private static void freeSpacePrinting(int i, List<Integer> list) {
-        System.out.println("Row:\t" + 1);
+        System.out.println("Row:\t" + i);
         System.out.println("Cols:\t" + Arrays.toString(list.toArray()));
     }
 
@@ -62,20 +63,16 @@ public class Task01 {
         cinema = new boolean[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                cinema[i][j] = getRandomNumber();
+                cinema[i][j] = random.nextBoolean();
             }
         }
     }
 
-    private static boolean getRandomNumber() {
-        return random.nextBoolean();
-    }
-
     private static void printCinema() {
         for (int i = 0; i < rows; i++) {
-            System.out.print("[");
+            System.out.print(i + "\t[ ");
             for (int j = 0; j < cols; j++) {
-                System.out.print((cinema[i][j] == false ? 0 : 1) + ", ");
+                System.out.print((cinema[i][j] == false ? 0 : 1) + " ");
             }
             System.out.print("]\n");
         }
