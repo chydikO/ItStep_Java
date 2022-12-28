@@ -29,7 +29,7 @@ public class Task01 {
     }
 
     private static void getFreeCols() {
-        List<Integer> arrayList;// = new Stack<>();
+        List<Integer> arrayList;
         System.out.print("input number of available places nearby:\t");
         placesNearby = scanner.nextInt();
 
@@ -40,7 +40,6 @@ public class Task01 {
                     arrayList.add(Integer.valueOf(j));
                     if (arrayList.size() == placesNearby) {
                         freeSpacePrinting(i, arrayList);
-                        break;
                     }
                 } else {
                     arrayList = new ArrayList<>();
