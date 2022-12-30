@@ -15,45 +15,35 @@ public class Task03 {
     private static final Scanner scanner = new Scanner(System.in);
     private static int[][] array;
     private static int arrayRows;
+    private static int newArraySize = 0;
 
 
     public static void main(String[] args) {
         arrayInit();
         arrayFill();
         arrayPrint(array);
+        System.out.println("-".repeat(15));
         arrayPrint(arrayTransformation());
 
     }
 
     private static int[] arrayTransformation() {
-        int newArraySize = getNewArraySize();
         int[] newArray = new int[newArraySize];
-        int startIndex = 0;
-        int stopIndex;
+        int index = 0;
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-
+                newArray[index++] = array[i][j];
             }
-            newArray[i] = (i + 1 < rows) ? new int[COL] : new int[array.length % COL];
-            stopIndex = newArray[i].length;
-            newArray[i] = Arrays.copyOfRange(array, startIndex, startIndex + stopIndex);
-            startIndex = newArray[i].length;
         }
         return newArray;
-    }
-
-    private static int getNewArraySize() {
-        int arraySize = 0;
-
-        return arraySize;
     }
 
     private static void arrayPrint(int[] array) {
         System.out.println(Arrays.toString(array));
     }
 
-    private static void arrayPrint( int[][] array) {
+    private static void arrayPrint(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             arrayPrint(array[i]);
         }
@@ -73,6 +63,7 @@ public class Task03 {
             array[i] = new int[column + 1];
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = random.nextInt(100) + 1;
+                newArraySize++;
             }
             column++;
         }
