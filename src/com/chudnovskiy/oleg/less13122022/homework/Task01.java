@@ -17,7 +17,6 @@ public class Task01 {
         for (int i = 0; i < ARRAY_SIZE; i++) {
             array[i] = Math.pow((double) i, 2.0d);
         }
-
         System.out.println(Arrays.toString(array));
     }
 }

@@ -26,12 +26,11 @@ public class Task03 {
         printArray(array);
 
         interestCalculation(bitDepthCalculation(array));
-
     }
 
     private static void interestCalculation(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            float percentDigit = ((float)array[i] / (float)ARRAY_SIZE) * 100.0f;
+            float percentDigit = ((float) array[i] / (float) ARRAY_SIZE) * 100.0f;
             System.out.println("Digit " + (i + 1) + ":\t" + String.format("%.02f", percentDigit) + "%");
         }
     }
@@ -41,7 +40,7 @@ public class Task03 {
         int digit2Count = 0;
         int digit3Count = 0;
 
-        for (int number: array) {
+        for (int number : array) {
             int tmp = countDigits(number);
             if (tmp == 1) {
                 digit1Count++;
@@ -51,7 +50,7 @@ public class Task03 {
                 digit3Count++;
             }
         }
-        return new int[] {digit1Count, digit2Count, digit3Count};
+        return new int[]{digit1Count, digit2Count, digit3Count};
     }
 
     private static int countDigits(int number) {
