@@ -1,5 +1,8 @@
 package com.chudnovskiy.oleg.less091222.homework;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * 2. Написать программу проверки умения складывать и вычитать
  * числа в пределах 100. Программа должна вывести 10 примеров,
@@ -29,4 +32,15 @@ package com.chudnovskiy.oleg.less091222.homework;
  * Оценка: Хорошо
  */
 public class Task02 {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
+
+    public static void main(String[] args) {
+
+    }
+
+    public static int getRandomIndex(int min, int max) {
+        return random.nextInt(max - min) + min;
+    }
+
 }
