@@ -53,10 +53,11 @@ public class Task01 {
                 grade--;
             }
         }
-        System.out.println(getGrade(grade));
+        System.out.println("Правильных ответов:\t" + grade);
+        System.out.println(getGradeToString(grade));
     }
 
-    private static String getGrade(int grade) {
+    private static String getGradeToString(int grade) {
         String result = "";
         switch (grade) {
             case 10:
