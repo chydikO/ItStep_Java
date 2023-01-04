@@ -22,10 +22,11 @@ import java.util.Scanner;
  */
 public class Task04 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static int number;
-    private static int minNumber = 0;
 
     public static void main(String[] args) {
+        int number;
+        int minNumber = 0;
+
         System.out.println("Определение минимального числа в последовательности положительных чисел.");
         System.out.print("Вводите после стрелки числа. Для завершения ввода введите ноль\n\t>\t");
         number = minNumber = scanner.nextInt();
