@@ -1,7 +1,9 @@
 package com.chudnovskiy.oleg.less061222.homework;
 
+import static java.lang.Math.sqrt;
+
 /**
- *     Задание 2
+ * Задание 2
  * Простое число – натуральное (целое положительное) число, имеющее ровно два различных натуральных делителя – единицу и
  * самого себя. Другими словами, число N является простым, если оно больше 1 и при этом делится без остатка только на
  * 1 и на N (на самого себя). Написать программу, которая выводит на экран все про- стые числа в диапазоне от 2 до 1 000 000.
@@ -10,4 +12,22 @@ package com.chudnovskiy.oleg.less061222.homework;
  * если он вообще имеется, обязательно располагается в отрез- ке [2; √n].
  */
 public class Task02 {
+    public static void main(String[] args) {
+        for (int i = 2; i < 1_000_000; i++) {
+            if (getSimpleNumber(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    private static boolean getSimpleNumber(int x) {
+        if (x < 2) {
+            return false;
+        }
+        for (int i = 2; i <= sqrt(x); i++)
+            if (x % i == 0) {
+                return false;
+            }
+        return true;
+    }
 }

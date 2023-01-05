@@ -12,7 +12,7 @@ import static java.lang.Math.pow;
 public class Task03 {
     public static void main(String[] args) {
         for (int i = 10; i < 1_000_000; i++) {
-            if (armstrongNumber(i) == true) {
+            if (armstrongNumber(i)) {
                 System.out.println(i);
             }
         }
@@ -20,20 +20,16 @@ public class Task03 {
 
     private static boolean armstrongNumber(int i) {
         int a, b;
-        int countOfNumber = 0;
+        int countOfNumber;
         int summa = 0;
 
         a = b = i;
         countOfNumber = String.valueOf(a).length();
 
         while (b != 0) {
-            summa += (int)pow((double)(b % 10), (double)countOfNumber);
+            summa += (int)pow(b % 10, countOfNumber);
             b /= 10;
         }
-
-        if (summa == i) {
-            return true;
-        }
-        return false;
+        return summa == i;
     }
 }

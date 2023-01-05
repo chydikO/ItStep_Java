@@ -10,41 +10,26 @@ package com.chudnovskiy.oleg.less061222.homework;
  */
 public class Task04 {
     public static void main(String[] args) {
-        /*for (double n = 0; n <= 1_000_000; n++) {
-            double sum = 0;
-            for (double div = 1; div < n; div++) {
-                if (n % div == 0)
-                    sum += div;
-            }
-            if (sum == n) {
-                System.out.println(n);        }
-        }*/
+
         for (int i = 0; i < 1_000_000; i++) {
-            if (isPerfect(i) == true) {
+            if (isPerfect(i)) {
                 System.out.println(i);
             }
         }
-
     }
-    private static boolean isPerfect(int n)
-    {
+
+    private static boolean isPerfect(int n) {
         int sum = 0;
-        for (int i = 1; i * i <= n; i++)
-        {
-            if (n % i == 0)
-            {
-                if (n / i == i)
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                if (n / i == i) {
                     sum += i;
-                else
-                {
+                } else {
                     sum += i;
                     sum += n / i;
                 }
             }
         }
-        if (n == sum - n) {
-            return true;
-        }
-        return false;
+        return n == sum - n;
     }
 }
