@@ -9,7 +9,6 @@ import java.util.Scanner;
  * 10 правильных ответов — "отлично", за 9 и 8 — "хорошо", за 7 и
  * 6 — "удовлетворительно", за 6 и менее — "неудовлетворитель-
  * но". Ниже приведен рекомендуемый вид экрана программы.
- * <p>
  * *** Проверка знания таблицы умножения ***
  * После примера введите ответ и нажмите <Enter>.
  * 5x3=15
@@ -45,11 +44,13 @@ public class Task01 {
             number1 = getRandomIndex(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             number2 = getRandomIndex(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
-            System.out.print(number1 + " X " + number2 + " = ");
+            String resultString = number1 + " X " + number2 + " = ";
+            System.out.print(resultString);
             resultFromUser = number1 * number2;
             result = scanner.nextInt();
 
-            if (isTrueAnswer(result, resultFromUser) == false) {
+            if (!isTrueAnswer(result, resultFromUser)) {
+                System.out.println("Вы ошиблись! " + resultString + resultFromUser);
                 grade--;
             }
         }
@@ -58,20 +59,12 @@ public class Task01 {
     }
 
     private static String getGradeToString(int grade) {
-        String result = "";
+        String result;
         switch (grade) {
-            case 10:
-                result = "отлично";
-                break;
-            case 8, 9: {
-                result = "хорошо";
-                break;
-            }
-            case 7, 6:
-                result = "удовлетворительно";
-                break;
-            default:
-                result = "не удовлетворительно";
+            case 10 -> result = "отлично";
+            case 8, 9 -> result = "хорошо";
+            case 7, 6 -> result = "удовлетворительно";
+            default -> result = "не удовлетворительно";
         }
         return result;
     }

@@ -13,7 +13,6 @@ import java.util.Scanner;
  * за 9 и 8 — "хорошо", за 7 и 6 — "удовлетворительно", за 6 и ме-
  * нее — "плохо". Ниже приведен рекомендуемый вид экрана про-
  * граммы.
- *
  * Проверка умения складывать и вычитать числа.
  * После примера введите ответ и нажмите <Enter>
  * 75-4=71
@@ -33,14 +32,69 @@ import java.util.Scanner;
  */
 public class Task02 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static Random random = new Random();
+    private static final int TASK_NUMBER = 10;
+    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
+        int result, resultFromUser;
+        int number1, number2;
+        int grade = 10;
+        boolean randomOperations;
 
+        System.out.println("Проверка умения складывать и вычитать числа.");
+        System.out.println("После примера введите ответ и нажмите <Enter>");
+
+        for (int i = 0; i < TASK_NUMBER; i++) {
+            number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            randomOperations = getRandomNBoolean();
+
+            if (!randomOperations && number1 < number2) {
+                do {
+                    number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+                } while (number1 < number2);
+            }
+
+            String resultString = number1 + " " + getOperationSign(randomOperations) + " " + number2 + " = ";
+            System.out.print(resultString);
+            resultFromUser = randomOperations ? number1 + number2 : number1 - number2;
+            result = scanner.nextInt();
+
+            if (!isTrueAnswer(result, resultFromUser)) {
+                System.out.println("Вы ошиблись! " + resultString + resultFromUser);
+                grade--;
+            }
+        }
+        System.out.println("Правильных ответов:\t" + grade);
+        System.out.println(getGradeToString(grade));
     }
 
-    public static int getRandomIndex(int min, int max) {
+    private static String getGradeToString(int grade) {
+        String result;
+        switch (grade) {
+            case 10 -> result = "отлично";
+            case 8, 9 -> result = "хорошо";
+            case 7, 6 -> result = "удовлетворительно";
+            default -> result = "плохо";
+        }
+        return result;
+    }
+
+    private static boolean isTrueAnswer(int result, int resultFromUser) {
+        return result == resultFromUser;
+    }
+
+    public static int getRandomNumber(int min, int max) {
         return random.nextInt(max - min) + min;
     }
 
+    public static boolean getRandomNBoolean() {
+        return random.nextBoolean();
+    }
+
+    private static String getOperationSign(boolean operation) {
+        return operation ? "+" : "-";
+    }
 }
