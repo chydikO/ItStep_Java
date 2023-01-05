@@ -2,6 +2,10 @@ package com.chudnovskiy.oleg.less081221.homework;
 
 import static java.lang.Math.abs;
 
+/**
+ *  Задание 4
+ * Ромб: заполненный и пустой.
+ */
 public class Task04 {
     public static void main(String[] args) {
         int numberOfLines = 5;

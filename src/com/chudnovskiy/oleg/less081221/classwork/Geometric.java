@@ -11,7 +11,7 @@ public class Geometric {
             }
             System.out.println("*");
         }
-
+        System.out.println();
 //1-й вариант Прямоугольного треугольника
         for (int i = 0; i < rectangle; i++){
             for (int j = i; j < rectangle; j++){
@@ -19,7 +19,7 @@ public class Geometric {
             }
             System.out.println("  *"+i);
         }
-
+        System.out.println();
 //2-й вариант Прямоугольного треугольника
         for (int i = 0; i < rectangle; i++){
             for (int j = rectangle; j > i; j--){
@@ -27,7 +27,7 @@ public class Geometric {
             }
             System.out.println(" *"+i);
         }
-
+        System.out.println();
 //3-й вариант Прямоугольного треугольника
         for (int i = rectangle; i >= 0; i--){
 
@@ -36,7 +36,7 @@ public class Geometric {
             }
             System.out.println("  *"+i);
         }
-
+        System.out.println();
 //4-й вариант Прямоугольного треугольника
         for (int i = rectangle; i >= 0; i--) {
             //Левое пустое пространство
@@ -53,7 +53,7 @@ public class Geometric {
             }
             System.out.println("  *" + i);
         }
-
+        System.out.println();
 //1-й вариант Треугольника
         for (int i = 0; i <= rectangle; i++){
 
@@ -79,7 +79,7 @@ public class Geometric {
 
             System.out.println("*"+i);
         }
-
+        System.out.println();
 //1-й вариант Ромб
         for (int i = 0; i < rectangle; i++){
 
@@ -130,5 +130,4 @@ public class Geometric {
             System.out.println("*"+i);
         }
     }
-
 }
