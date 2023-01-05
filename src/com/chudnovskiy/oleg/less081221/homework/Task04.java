@@ -1,9 +1,7 @@
 package com.chudnovskiy.oleg.less081221.homework;
 
-import static java.lang.Math.abs;
-
 /**
- *  Задание 4
+ * Задание 4
  * Ромб: заполненный и пустой.
  */
 public class Task04 {
@@ -14,37 +12,35 @@ public class Task04 {
 
     private static String draw(int numberOfLines) {
         int i, j;
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (i = 1; i <= numberOfLines; i++) {
             for (j = numberOfLines; j > i; j--) {
-                str += " ";
+                str.append(" ");
             }
-            str += "*";
+            str.append("*");
             for (j = 1; j < (i - 1) * 2; j++) {
-                str += " ";
+                str.append(" ");
             }
             if (i == 1) {
-                str += "\n";
+                str.append("\n");
             } else {
-                str += "*\n";
+                str.append("*\n");
             }
         }
         for (i = 2; i <= numberOfLines; i++) {
             for (j = 1; j < i; j++) {
-                str += " ";
+                str.append(" ");
             }
 
             for (j = 1; j <= numberOfLines * 2 - (2 * i - 1); j++) {
-
                 if (i == 0 || j == 1 || j == numberOfLines * 2 - (2 * i - 1)) {
-                    str += "*";
+                    str.append("*");
                 } else {
-                    str += " ";
+                    str.append(" ");
                 }
-
             }
-            str += "\n";
+            str.append("\n");
         }
-        return str;
+        return str.toString();
     }
 }
