@@ -21,14 +21,14 @@ public class ClassTask {
     private static String email;
     private static String password;
 
-    private static String[] noValidEmails = {
+    private static final String[] noValidEmails = {
             "@.",
             "@domain.com",
             "username@.",
             "username.domain@",
             "username@mail@com.ua",
             "username@mail..com"};
-    private static String[] validEmails = {"vasja@mail.com", "masha@ua.fm", "roma@i.ua"};
+    private static final String[] validEmails = {"vasja@mail.com", "masha@ua.fm", "roma@i.ua"};
 
 
     public static void main(String[] args) {
@@ -59,7 +59,7 @@ public class ClassTask {
     public static void inputLogin() {
         System.out.print("Input you email:\t");
         email = scanner.nextLine();
-        if (isValidEmail(email) == true) {
+        if (isValidEmail(email)) {
             System.out.print("Enter password:\t");
             password = scanner.nextLine();
         }
@@ -77,11 +77,8 @@ public class ClassTask {
             return false;
         }
 
-        if (indexDot <= indexDog + 1
-                || indexDog < 1
-                || indexDot == str.length() - 1) {
-            return false;
-        }
-        return true;
+        return indexDot > indexDog + 1
+                && indexDog >= 1
+                && indexDot != str.length() - 1;
     }
 }
