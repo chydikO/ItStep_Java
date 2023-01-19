@@ -10,19 +10,25 @@ public class Task01 {
         String massage = inputMassage();
         int key = inputKey();
 
-        String encryptMassage = encryptDecryptMassage(key, massage);
-        String decryptMessage = encryptDecryptMassage(-key, encryptMassage);
+        String encryptMassage = encode(key, massage);
+        String decryptMessage = decode(key, encryptMassage);
 
         System.out.println("Encrypt Massage:\t" + encryptMassage);
         System.out.println("Decrypt Message:\t" + decryptMessage);
+
+        System.out.println(decode(5, "N%fr%Of{f%Ij{jqtujw"));
     }
 
-    private static String encryptDecryptMassage(int key, String massage) {
+    private static String encode(int key, String massage) {
         StringBuilder stringBuilder = new StringBuilder(massage.length());
         for (int i = 0; i < massage.length(); i++) {
             stringBuilder.append((char)(massage.charAt(i) + (char)key));
         }
         return stringBuilder.toString();
+    }
+
+    private static String decode(int key, String massage) {
+        return encode(-key, massage);
     }
 
     private static int inputKey() {
