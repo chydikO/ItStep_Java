@@ -9,4 +9,20 @@ package com.chudnovskiy.oleg.less10012023.homework;
  * Вывод: 5 4 3 2 1
  */
 public class Task01 {
+    public static void main(String[] args) {
+        func(5, 1);
+    }
+
+    static void func(int start, int stop) {
+        if (start == stop) {
+            return;
+        }
+        if (start < stop) {
+            System.out.println(start);
+            func(start + 1, stop);
+        } else {
+            System.out.println(start);
+            func(start - 1, stop);
+        }
+    }
 }
